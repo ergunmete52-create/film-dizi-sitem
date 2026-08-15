@@ -1,119 +1,338 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FilmDizi</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FilmDizi</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-    }
+body{
+margin:0;
+background:#090909;
+color:white;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-    header {
-      background: #181818;
-      padding: 20px;
-      text-align: center;
-    }
+nav{
+height:65px;
+display:flex;
+align-items:center;
+gap:25px;
+padding:0 5%;
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:10;
+background:linear-gradient(#050505,transparent);
+}
 
-    header h1 {
-      margin: 0 0 15px;
-      color: #e50914;
-    }
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#e50914;
+}
 
-    input {
-      width: 90%;
-      max-width: 500px;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+nav a{
+color:#ddd;
+text-decoration:none;
+font-size:14px;
+}
 
-    main {
-      padding: 25px;
-      max-width: 1000px;
-      margin: auto;
-    }
+nav a:hover{color:white}
 
-    h2 {
-      margin-top: 0;
-    }
+.hero{
+min-height:650px;
+padding:160px 5% 80px;
+display:flex;
+align-items:flex-end;
 
-    .films {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-    }
+background:
+linear-gradient(90deg,#090909 0%,rgba(9,9,9,.9) 35%,rgba(9,9,9,.15) 80%),
+linear-gradient(0deg,#090909,transparent 50%),
+radial-gradient(circle at 75% 30%,#751323,#251017 35%,#111 70%,#090909);
+}
 
-    .film {
-      background: #222;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-    }
+.hero-content{
+max-width:600px;
+}
 
-    .poster {
-      height: 200px;
-      background: #333;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-      color: #aaa;
-    }
+.tag{
+color:#aaa;
+font-size:14px;
+margin-bottom:12px;
+}
 
-    button {
-      background: #e50914;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
+h1{
+font-size:65px;
+margin:0 0 15px;
+}
+
+.hero p{
+color:#ddd;
+line-height:1.6;
+font-size:16px;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+button{
+border:0;
+border-radius:5px;
+padding:12px 22px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+}
+
+.play{
+background:white;
+color:black;
+}
+
+.info{
+background:#555;
+color:white;
+}
+
+.section{
+padding:0 5% 40px;
+}
+
+.section h2{
+font-size:22px;
+}
+
+.row{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:14px;
+}
+
+.card{
+height:240px;
+border-radius:8px;
+overflow:hidden;
+position:relative;
+background:linear-gradient(145deg,#35101a,#111);
+transition:.2s;
+cursor:pointer;
+}
+
+.card:nth-child(2){
+background:linear-gradient(145deg,#102c4c,#111);
+}
+
+.card:nth-child(3){
+background:linear-gradient(145deg,#493516,#111);
+}
+
+.card:nth-child(4){
+background:linear-gradient(145deg,#12372c,#111);
+}
+
+.card:nth-child(5){
+background:linear-gradient(145deg,#42204b,#111);
+}
+
+.card:hover{
+transform:scale(1.04);
+}
+
+.poster{
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+}
+
+.label{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:45px 12px 12px;
+background:linear-gradient(transparent,#050505);
+font-weight:bold;
+}
+
+.badge{
+font-size:11px;
+color:#aaa;
+margin-top:5px;
+}
+
+footer{
+padding:40px 5%;
+color:#777;
+font-size:13px;
+}
+
+@media(max-width:800px){
+.row{
+grid-template-columns:repeat(2,1fr);
+}
+
+.card{
+height:210px;
+}
+
+nav a{
+display:none;
+}
+
+.hero{
+min-height:600px;
+}
+}
+
+@media(max-width:480px){
+h1{
+font-size:45px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.card{
+height:190px;
+}
+
+.row{
+gap:10px;
+}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>🎬 FilmDizi</h1>
-  <input type="text" placeholder="Film veya dizi ara...">
+<nav>
+<div class="logo">FILMDİZİ</div>
+<a href="#">Ana Sayfa</a>
+<a href="#filmler">Filmler</a>
+<a href="#diziler">Diziler</a>
+<a href="#populer">Popüler</a>
+</nav>
+
+<header class="hero">
+<div class="hero-content">
+
+<div class="tag">🔥 BU HAFTA ÖNE ÇIKAN</div>
+
+<h1>Karanlık Şehir</h1>
+
+<p>
+Gizem, aksiyon ve sürprizlerle dolu yeni bir hikâye.
+En sevdiğin filmleri ve dizileri tek yerde keşfet.
+</p>
+
+<div class="buttons">
+<button class="play">▶ Oynat</button>
+<button class="info">ⓘ Daha Fazla Bilgi</button>
+</div>
+
+</div>
 </header>
 
-<main>
-  <h2>Popüler İçerikler</h2>
+<section class="section" id="populer">
 
-  <div class="films">
+<h2>🔥 Popüler</h2>
 
-    <div class="film">
-      <div class="poster">POSTER</div>
-      <h3>Film 1</h3>
-      <button>İzle</button>
-    </div>
+<div class="row">
 
-    <div class="film">
-      <div class="poster">POSTER</div>
-      <h3>Film 2</h3>
-      <button>İzle</button>
-    </div>
+<div class="card">
+<div class="poster">🎬</div>
+<div class="label">
+Gece Yarısı
+<div class="badge">Film • 2026</div>
+</div>
+</div>
 
-    <div class="film">
-      <div class="poster">POSTER</div>
-      <h3>Dizi 1</h3>
-      <button>İzle</button>
-    </div>
+<div class="card">
+<div class="poster">🚀</div>
+<div class="label">
+Son Sinyal
+<div class="badge">Dizi • 8 Bölüm</div>
+</div>
+</div>
 
-  </div>
-</main>
+<div class="card">
+<div class="poster">🕵️</div>
+<div class="label">
+Gizli Dosya
+<div class="badge">Film • Gizem</div>
+</div>
+</div>
+
+<div class="card">
+<div class="poster">🌊</div>
+<div class="label">
+Derinlik
+<div class="badge">Dizi • Dram</div>
+</div>
+</div>
+
+<div class="card">
+<div class="poster">👑</div>
+<div class="label">
+Krallık
+<div class="badge">Film • Aksiyon</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="filmler">
+
+<h2>🎥 Filmler</h2>
+
+<div class="row">
+
+<div class="card"><div class="poster">⚡</div><div class="label">Son Şans</div></div>
+
+<div class="card"><div class="poster">🏙️</div><div class="label">Şehir Işıkları</div></div>
+
+<div class="card"><div class="poster">👽</div><div class="label">Yeni Dünya</div></div>
+
+<div class="card"><div class="poster">🏎️</div><div class="label">Hız</div></div>
+
+<div class="card"><div class="poster">🧟</div><div class="label">Gece</div></div>
+
+</div>
+</section>
+
+<section class="section" id="diziler">
+
+<h2>📺 Diziler</h2>
+
+<div class="row">
+
+<div class="card"><div class="poster">🔥</div><div class="label">Ateş Hattı</div></div>
+
+<div class="card"><div class="poster">🔍</div><div class="label">Dedektif</div></div>
+
+<div class="card"><div class="poster">🌌</div><div class="label">Kayıp Galaksi</div></div>
+
+<div class="card"><div class="poster">🎭</div><div class="label">Perde Arkası</div></div>
+
+<div class="card"><div class="poster">🏆</div><div class="label">Şampiyon</div></div>
+
+</div>
+</section>
+
+<footer>
+© 2026 FilmDizi — Kendi film ve dizi siten
+</footer>
 
 </body>
 </html>

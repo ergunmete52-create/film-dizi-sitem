@@ -6,209 +6,232 @@
 <title>FilmDizi</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-margin:0;
-background:#090909;
-color:white;
-font-family:Arial,Helvetica,sans-serif;
+  background:#080808;
+  color:white;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 nav{
-height:65px;
-display:flex;
-align-items:center;
-gap:25px;
-padding:0 5%;
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:10;
-background:linear-gradient(#050505,transparent);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:65px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:linear-gradient(#050505,transparent);
+  z-index:10;
 }
 
 .logo{
-font-size:26px;
-font-weight:bold;
-color:#e50914;
+  font-size:26px;
+  font-weight:bold;
+  color:#e50914;
 }
 
-nav a{
-color:#ddd;
-text-decoration:none;
-font-size:14px;
+.menu{
+  display:flex;
+  gap:25px;
 }
 
-nav a:hover{color:white}
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.menu a:hover{
+  color:#aaa;
+}
+
+.search{
+  background:#222;
+  border:1px solid #444;
+  border-radius:5px;
+  padding:10px 14px;
+  color:white;
+  width:180px;
+}
 
 .hero{
-min-height:650px;
-padding:160px 5% 80px;
-display:flex;
-align-items:flex-end;
-
-background:
-linear-gradient(90deg,#090909 0%,rgba(9,9,9,.9) 35%,rgba(9,9,9,.15) 80%),
-linear-gradient(0deg,#090909,transparent 50%),
-radial-gradient(circle at 75% 30%,#751323,#251017 35%,#111 70%,#090909);
+  min-height:650px;
+  padding:180px 6% 80px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,#080808 10%,rgba(8,8,8,.7) 45%,transparent),
+    linear-gradient(0deg,#080808,transparent 40%),
+    radial-gradient(circle at 75% 40%,#5b1111,#171717 35%,#080808 70%);
 }
 
 .hero-content{
-max-width:600px;
+  max-width:600px;
 }
 
 .tag{
-color:#aaa;
-font-size:14px;
-margin-bottom:12px;
+  color:#e50914;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
-h1{
-font-size:65px;
-margin:0 0 15px;
+.hero h1{
+  font-size:60px;
+  margin-bottom:15px;
 }
 
 .hero p{
-color:#ddd;
-line-height:1.6;
-font-size:16px;
+  color:#ddd;
+  line-height:1.6;
+  font-size:17px;
+  margin-bottom:25px;
 }
 
 .buttons{
-display:flex;
-gap:10px;
-margin-top:20px;
+  display:flex;
+  gap:12px;
 }
 
 button{
-border:0;
-border-radius:5px;
-padding:12px 22px;
-font-weight:bold;
-font-size:15px;
-cursor:pointer;
+  border:0;
+  border-radius:5px;
+  padding:13px 22px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .play{
-background:white;
-color:black;
+  background:white;
+  color:black;
 }
 
 .info{
-background:#555;
-color:white;
+  background:#444;
+  color:white;
 }
 
-.section{
-padding:0 5% 40px;
+section{
+  padding:25px 5%;
 }
 
-.section h2{
-font-size:22px;
+section h2{
+  margin-bottom:18px;
 }
 
-.row{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:14px;
+.movies{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:18px;
 }
 
 .card{
-height:240px;
-border-radius:8px;
-overflow:hidden;
-position:relative;
-background:linear-gradient(145deg,#35101a,#111);
-transition:.2s;
-cursor:pointer;
-}
-
-.card:nth-child(2){
-background:linear-gradient(145deg,#102c4c,#111);
-}
-
-.card:nth-child(3){
-background:linear-gradient(145deg,#493516,#111);
-}
-
-.card:nth-child(4){
-background:linear-gradient(145deg,#12372c,#111);
-}
-
-.card:nth-child(5){
-background:linear-gradient(145deg,#42204b,#111);
+  height:250px;
+  border-radius:7px;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(145deg,#333,#111);
+  transition:.25s;
+  cursor:pointer;
 }
 
 .card:hover{
-transform:scale(1.04);
+  transform:scale(1.05);
 }
 
 .poster{
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:15px;
+  font-size:22px;
+  font-weight:bold;
+  background:linear-gradient(145deg,#401010,#111);
 }
 
-.label{
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-padding:45px 12px 12px;
-background:linear-gradient(transparent,#050505);
-font-weight:bold;
+.card:nth-child(2) .poster{
+  background:linear-gradient(145deg,#102c45,#111);
 }
 
-.badge{
-font-size:11px;
-color:#aaa;
-margin-top:5px;
+.card:nth-child(3) .poster{
+  background:linear-gradient(145deg,#44310c,#111);
+}
+
+.card:nth-child(4) .poster{
+  background:linear-gradient(145deg,#32114a,#111);
+}
+
+.card:nth-child(5) .poster{
+  background:linear-gradient(145deg,#103c32,#111);
+}
+
+.card:nth-child(6) .poster{
+  background:linear-gradient(145deg,#401c0c,#111);
+}
+
+.card-info{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:35px 12px 12px;
+  background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.card-info strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.card-info small{
+  color:#aaa;
 }
 
 footer{
-padding:40px 5%;
-color:#777;
-font-size:13px;
+  text-align:center;
+  color:#777;
+  padding:50px 20px;
 }
 
-@media(max-width:800px){
-.row{
-grid-template-columns:repeat(2,1fr);
-}
+@media(max-width:700px){
+  .menu{
+    display:none;
+  }
 
-.card{
-height:210px;
-}
+  .search{
+    width:130px;
+  }
 
-nav a{
-display:none;
-}
+  .hero{
+    min-height:600px;
+    padding-top:150px;
+  }
 
-.hero{
-min-height:600px;
-}
-}
+  .hero h1{
+    font-size:42px;
+  }
 
-@media(max-width:480px){
-h1{
-font-size:45px;
-}
+  .hero p{
+    font-size:15px;
+  }
 
-.hero p{
-font-size:14px;
-}
+  .movies{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-.card{
-height:190px;
-}
-
-.row{
-gap:10px;
-}
+  .card{
+    height:220px;
+  }
 }
 </style>
 </head>
@@ -216,122 +239,139 @@ gap:10px;
 <body>
 
 <nav>
-<div class="logo">FILMDİZİ</div>
-<a href="#">Ana Sayfa</a>
-<a href="#filmler">Filmler</a>
-<a href="#diziler">Diziler</a>
-<a href="#populer">Popüler</a>
+  <div class="logo">FILMDİZİ</div>
+
+  <div class="menu">
+    <a href="#">Ana Sayfa</a>
+    <a href="#filmler">Filmler</a>
+    <a href="#diziler">Diziler</a>
+    <a href="#">Yeni</a>
+  </div>
+
+  <input class="search" type="text" placeholder="Film veya dizi ara...">
 </nav>
 
 <header class="hero">
-<div class="hero-content">
+  <div class="hero-content">
+    <div class="tag">🔥 ÖNE ÇIKAN</div>
 
-<div class="tag">🔥 BU HAFTA ÖNE ÇIKAN</div>
+    <h1>Film & Dizi Dünyası</h1>
 
-<h1>Karanlık Şehir</h1>
+    <p>
+      En sevdiğin filmleri ve dizileri keşfet.
+      Yeni içeriklere göz at ve kendi film arşivini oluştur.
+    </p>
 
-<p>
-Gizem, aksiyon ve sürprizlerle dolu yeni bir hikâye.
-En sevdiğin filmleri ve dizileri tek yerde keşfet.
-</p>
+    <div class="buttons">
+      <button class="play" onclick="alert('Film başlatılıyor!')">
+        ▶ Oynat
+      </button>
 
-<div class="buttons">
-<button class="play">▶ Oynat</button>
-<button class="info">ⓘ Daha Fazla Bilgi</button>
-</div>
-
-</div>
+      <button class="info" onclick="alert('Daha fazla bilgi yakında!')">
+        ⓘ Daha Fazla Bilgi
+      </button>
+    </div>
+  </div>
 </header>
 
-<section class="section" id="populer">
+<section id="filmler">
+  <h2>🔥 Popüler Filmler</h2>
 
-<h2>🔥 Popüler</h2>
+  <div class="movies">
 
-<div class="row">
+    <div class="card">
+      <div class="poster">GECE<br>MACERASI</div>
+      <div class="card-info">
+        <strong>Gece Macerası</strong>
+        <small>2026 • Film</small>
+      </div>
+    </div>
 
-<div class="card">
-<div class="poster">🎬</div>
-<div class="label">
-Gece Yarısı
-<div class="badge">Film • 2026</div>
-</div>
-</div>
+    <div class="card">
+      <div class="poster">SON<br>GÖREV</div>
+      <div class="card-info">
+        <strong>Son Görev</strong>
+        <small>2026 • Aksiyon</small>
+      </div>
+    </div>
 
-<div class="card">
-<div class="poster">🚀</div>
-<div class="label">
-Son Sinyal
-<div class="badge">Dizi • 8 Bölüm</div>
-</div>
-</div>
+    <div class="card">
+      <div class="poster">KAYIP<br>ŞEHİR</div>
+      <div class="card-info">
+        <strong>Kayıp Şehir</strong>
+        <small>2025 • Macera</small>
+      </div>
+    </div>
 
-<div class="card">
-<div class="poster">🕵️</div>
-<div class="label">
-Gizli Dosya
-<div class="badge">Film • Gizem</div>
-</div>
-</div>
+    <div class="card">
+      <div class="poster">KARANLIK<br>GÜÇ</div>
+      <div class="card-info">
+        <strong>Karanlık Güç</strong>
+        <small>2026 • Fantastik</small>
+      </div>
+    </div>
 
-<div class="card">
-<div class="poster">🌊</div>
-<div class="label">
-Derinlik
-<div class="badge">Dizi • Dram</div>
-</div>
-</div>
+    <div class="card">
+      <div class="poster">SONSUZ<br>YOL</div>
+      <div class="card-info">
+        <strong>Sonsuz Yol</strong>
+        <small>2025 • Dram</small>
+      </div>
+    </div>
 
-<div class="card">
-<div class="poster">👑</div>
-<div class="label">
-Krallık
-<div class="badge">Film • Aksiyon</div>
-</div>
-</div>
+    <div class="card">
+      <div class="poster">TEHLİKELİ<br>OYUN</div>
+      <div class="card-info">
+        <strong>Tehlikeli Oyun</strong>
+        <small>2026 • Gerilim</small>
+      </div>
+    </div>
 
-</div>
+  </div>
 </section>
 
-<section class="section" id="filmler">
+<section id="diziler">
+  <h2>📺 Popüler Diziler</h2>
 
-<h2>🎥 Filmler</h2>
+  <div class="movies">
 
-<div class="row">
+    <div class="card">
+      <div class="poster">GİZLİ<br>DOSYA</div>
+      <div class="card-info">
+        <strong>Gizli Dosya</strong>
+        <small>3 Sezon</small>
+      </div>
+    </div>
 
-<div class="card"><div class="poster">⚡</div><div class="label">Son Şans</div></div>
+    <div class="card">
+      <div class="poster">SON<br>KRALLIK</div>
+      <div class="card-info">
+        <strong>Son Krallık</strong>
+        <small>2 Sezon</small>
+      </div>
+    </div>
 
-<div class="card"><div class="poster">🏙️</div><div class="label">Şehir Işıkları</div></div>
+    <div class="card">
+      <div class="poster">GECE<br>EKİBİ</div>
+      <div class="card-info">
+        <strong>Gece Ekibi</strong>
+        <small>1 Sezon</small>
+      </div>
+    </div>
 
-<div class="card"><div class="poster">👽</div><div class="label">Yeni Dünya</div></div>
+    <div class="card">
+      <div class="poster">KAYIP<br>İZLER</div>
+      <div class="card-info">
+        <strong>Kayıp İzler</strong>
+        <small>4 Sezon</small>
+      </div>
+    </div>
 
-<div class="card"><div class="poster">🏎️</div><div class="label">Hız</div></div>
-
-<div class="card"><div class="poster">🧟</div><div class="label">Gece</div></div>
-
-</div>
-</section>
-
-<section class="section" id="diziler">
-
-<h2>📺 Diziler</h2>
-
-<div class="row">
-
-<div class="card"><div class="poster">🔥</div><div class="label">Ateş Hattı</div></div>
-
-<div class="card"><div class="poster">🔍</div><div class="label">Dedektif</div></div>
-
-<div class="card"><div class="poster">🌌</div><div class="label">Kayıp Galaksi</div></div>
-
-<div class="card"><div class="poster">🎭</div><div class="label">Perde Arkası</div></div>
-
-<div class="card"><div class="poster">🏆</div><div class="label">Şampiyon</div></div>
-
-</div>
+  </div>
 </section>
 
 <footer>
-© 2026 FilmDizi — Kendi film ve dizi siten
+  © 2026 FilmDizi • Kendi film ve dizi siten
 </footer>
 
 </body>

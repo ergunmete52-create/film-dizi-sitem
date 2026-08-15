@@ -189,6 +189,14 @@ section h2{
     background:linear-gradient(145deg,#102f23,#06130e);
 }
 
+.card:nth-child(7) .poster{
+    background:linear-gradient(145deg,#3b1111,#100404);
+}
+
+.card:nth-child(8) .poster{
+    background:linear-gradient(145deg,#111d3d,#050916);
+}
+
 .card-info{
     padding:18px;
 }
@@ -344,7 +352,7 @@ footer{
         <!-- HARRY POTTER 1 -->
 
         <a
-            href="https://https://www.hdfilmcehennemi.nl/hd-harry-potter-ve-felsefe-tasi-film-izle-8//film-izle/harry-potter-ve-felsefe-tasi--212330223"
+            href="https://tvplus.com.tr/film-izle/harry-potter-ve-felsefe-tasi--212330223"
             class="card"
             target="_blank"
             rel="noopener"
@@ -355,15 +363,8 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    Harry Potter ve Felsefe Taşı
-                </strong>
-
-                <small>
-                    2001 • Fantastik
-                </small>
-
+                <strong>Harry Potter ve Felsefe Taşı</strong>
+                <small>2001 • Fantastik</small>
             </div>
 
         </a>
@@ -372,7 +373,7 @@ footer{
         <!-- HARRY POTTER 2 -->
 
         <a
-            href="https:/www.fulhdfilmizle.cx/hd-harry-potter-ve-sirlar-odasi-izle-8//film-izle/harry-potter-ve-sirlar-odasi--212329885"
+            href="https://tvplus.com.tr/film-izle/harry-potter-ve-sirlar-odasi--212329885"
             class="card"
             target="_blank"
             rel="noopener"
@@ -383,15 +384,8 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    Harry Potter ve Sırlar Odası
-                </strong>
-
-                <small>
-                    2002 • Fantastik
-                </small>
-
+                <strong>Harry Potter ve Sırlar Odası</strong>
+                <small>2002 • Fantastik</small>
             </div>
 
         </a>
@@ -400,7 +394,7 @@ footer{
         <!-- HARRY POTTER 3 -->
 
         <a
-            href="https://https://https:///film-izle/harry-potter-ve-azkaban-tutsagi--212330284"
+            href="https://tvplus.com.tr/film-izle/harry-potter-ve-azkaban-tutsagi--212330284"
             class="card"
             target="_blank"
             rel="noopener"
@@ -411,18 +405,48 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    Harry Potter ve Azkaban Tutsağı
-                </strong>
-
-                <small>
-                    2004 • Fantastik
-                </small>
-
+                <strong>Harry Potter ve Azkaban Tutsağı</strong>
+                <small>2004 • Fantastik</small>
             </div>
 
         </a>
+
+
+        <!-- ÖRÜMCEK ADAM 1 -->
+
+        <a
+            href="https://www.tivibu.com.tr/film-detay/orumcek-adam/00000020010000021147"
+            class="card"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+                ÖRÜMCEK<br>ADAM
+            </div>
+
+            <div class="card-info">
+                <strong>Örümcek Adam</strong>
+                <small>2002 • Aksiyon / Macera</small>
+            </div>
+
+        </a>
+
+
+        <!-- ÖRÜMCEK ADAM 3 -->
+
+        <div class="card">
+
+            <div class="poster">
+                ÖRÜMCEK<br>ADAM 3
+            </div>
+
+            <div class="card-info">
+                <strong>Örümcek Adam 3</strong>
+                <small>2007 • Aksiyon / Macera</small>
+            </div>
+
+        </div>
 
 
     </div>
@@ -447,15 +471,8 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    Stranger Things
-                </strong>
-
-                <small>
-                    Dizi • Bilim Kurgu
-                </small>
-
+                <strong>Stranger Things</strong>
+                <small>Dizi • Bilim Kurgu</small>
             </div>
 
         </div>
@@ -470,15 +487,8 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    The Boys
-                </strong>
-
-                <small>
-                    Dizi • Aksiyon
-                </small>
-
+                <strong>The Boys</strong>
+                <small>Dizi • Aksiyon</small>
             </div>
 
         </div>
@@ -493,15 +503,8 @@ footer{
             </div>
 
             <div class="card-info">
-
-                <strong>
-                    Dexter
-                </strong>
-
-                <small>
-                    Dizi • Suç / Dram
-                </small>
-
+                <strong>Dexter</strong>
+                <small>Dizi • Suç / Dram</small>
             </div>
 
         </div>
@@ -515,9 +518,7 @@ footer{
 <!-- FOOTER -->
 
 <footer>
-
     © 2026 FilmDizi • Kendi film ve dizi siten
-
 </footer>
 
 
@@ -526,31 +527,20 @@ footer{
 <script>
 
 const search = document.getElementById("search");
-
 const cards = document.querySelectorAll(".card");
-
 
 search.addEventListener("input", function(){
 
-    const kelime = search.value
-        .toLowerCase()
-        .trim();
-
+    const kelime = search.value.toLowerCase().trim();
 
     cards.forEach(function(card){
 
-        const yazi =
-            card.innerText.toLowerCase();
-
+        const yazi = card.innerText.toLowerCase();
 
         if(yazi.includes(kelime)){
-
             card.style.display = "";
-
         }else{
-
             card.style.display = "none";
-
         }
 
     });

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilmDizi</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    header {
+      background: #181818;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 15px;
+      color: #e50914;
+    }
+
+    input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    main {
+      padding: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .films {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .film {
+      background: #222;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .poster {
+      height: 200px;
+      background: #333;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      color: #aaa;
+    }
+
+    button {
+      background: #e50914;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎬 FilmDizi</h1>
+  <input type="text" placeholder="Film veya dizi ara...">
+</header>
+
+<main>
+  <h2>Popüler İçerikler</h2>
+
+  <div class="films">
+
+    <div class="film">
+      <div class="poster">POSTER</div>
+      <h3>Film 1</h3>
+      <button>İzle</button>
+    </div>
+
+    <div class="film">
+      <div class="poster">POSTER</div>
+      <h3>Film 2</h3>
+      <button>İzle</button>
+    </div>
+
+    <div class="film">
+      <div class="poster">POSTER</div>
+      <h3>Dizi 1</h3>
+      <button>İzle</button>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
